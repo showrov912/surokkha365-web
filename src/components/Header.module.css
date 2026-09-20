@@ -1,0 +1,168 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.promoBar {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.promoInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.promoText {
+  font-weight: 600;
+  flex: 1;
+  text-align: center;
+}
+
+.loginBtn {
+  background: transparent;
+  border: none;
+  color: var(--color-white);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.promoRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socialIcons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  opacity: 0.8;
+  transition: opacity 150ms ease;
+}
+
+.socialIcons a:hover {
+  opacity: 1;
+}
+
+.mainHeader {
+  background-color: #111827; /* Dark slate */
+  color: var(--color-white);
+  padding: 12px 0;
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoContainer img {
+  width: auto;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* If the logo is dark, we can use a CSS filter to invert it for the dark background */
+.logoFilter {
+  filter: brightness(0) invert(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-white);
+  transition: opacity 150ms ease;
+}
+
+.actionItem:hover {
+  opacity: 0.8;
+}
+
+.actionIcon {
+  color: var(--color-orange);
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionLabel {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.actionValue {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.langToggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.langToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .actions {
+    gap: 16px;
+  }
+  .actionText {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .promoText {
+    font-size: 12px;
+  }
+  .logoContainer img {
+    height: 36px;
+  }
+}

@@ -1,0 +1,127 @@
+.ctaSection {
+  padding: 80px 0;
+  background-color: var(--color-white);
+}
+
+.ctaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.ctaBlock {
+  background-color: var(--color-neutral-100);
+  padding: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ctaBlock h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+  color: var(--color-black);
+}
+
+.contactGroup {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactGroup span {
+  color: var(--color-charcoal);
+  font-size: 14px;
+}
+
+.contactActions {
+  display: flex;
+  gap: 24px;
+}
+
+.phoneLink, .waLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  transition: color 150ms ease;
+}
+
+.phoneLink:hover {
+  color: var(--color-orange);
+}
+
+.waLink:hover {
+  color: #25D366;
+}
+
+.coverageBlock h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 32px;
+  color: var(--color-black);
+}
+
+.mapVisual {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 40px;
+  /* Pattern to mimic fine-line map */
+  background-image: 
+    linear-gradient(rgba(71,71,71,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(71,71,71,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.pins {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.pin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-line);
+  padding: 8px 16px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.highlightPin {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.closingSafety {
+  text-align: center;
+  margin-top: 64px;
+  font-size: 18px;
+  color: var(--color-charcoal);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .ctaGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaBlock {
+    padding: 32px 24px;
+  }
+  
+  .contactActions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "Dhaka": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Khulna": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Sylhet": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Rangpur": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Barishal": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Rajshahi": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Chattogram": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  },
+  "Mymensingh": {
+    "Rodent": 10,
+    "Bed Bug": 10,
+    "Termite": 10,
+    "Mosquito": 10,
+    "Cockroach": 10
+  }
+}

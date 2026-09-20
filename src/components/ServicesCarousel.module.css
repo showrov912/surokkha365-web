@@ -1,0 +1,174 @@
+.servicesSection {
+  padding: 80px 0;
+  background-color: var(--color-neutral-100);
+}
+
+.contentWrapper {
+  grid-column: 1 / -1;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-orange);
+  color: white;
+  padding: 8px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 32px;
+  color: #111827; /* Dark slate */
+  font-weight: 700;
+}
+
+.carouselContainer {
+  margin: 0 -24px; /* Bleed out on mobile */
+  padding: 0 24px;
+}
+
+.carousel {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 32px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel::-webkit-scrollbar {
+  height: 8px; /* Add visible scrollbar at bottom */
+}
+
+.carousel::-webkit-scrollbar-track {
+  background: var(--color-neutral-200);
+  border-radius: 4px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+  background-color: var(--color-orange);
+  border-radius: 4px;
+}
+
+.card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 320px;
+  background-color: var(--color-white);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+  overflow: visible; /* To allow overlapping icon */
+  margin-top: 10px; /* Space for box shadow */
+}
+
+.imageArea {
+  height: 200px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagePlaceholderText {
+  color: var(--color-charcoal);
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+/* Overlapping Icon */
+.iconCircle {
+  position: absolute;
+  top: 200px; /* Same as imageArea height */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Keep a nice drop shadow for the button */
+}
+
+.iconInner {
+  position: relative; /* Needed for Next.js Image fill */
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.contentArea {
+  padding: 56px 24px 32px; /* Top padding to clear icon */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.cardDesc {
+  color: #4b5563;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.bookNowBtn {
+  background: none;
+  border: none;
+  color: var(--color-orange);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-top: auto;
+  font-family: inherit;
+}
+
+.arrowCircle {
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-orange);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease;
+}
+
+.bookNowBtn:hover .arrowCircle {
+  transform: translateX(4px);
+}
