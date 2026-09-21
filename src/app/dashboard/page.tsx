@@ -6,6 +6,7 @@ import Link from "next/link";
 import { User, Calendar, FileText, Settings, LogOut, Download, MapPin, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import ClientBookingModal from "@/components/ClientBookingModal";
+import styles from "./Dashboard.module.css";
 
 export default function DashboardPage() {
   const { lang } = useLanguage();
@@ -151,10 +152,10 @@ export default function DashboardPage() {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#f8fafc", paddingTop: "80px", paddingBottom: "80px" }}>
-      <div className="grid-container" style={{ display: "grid", gridTemplateColumns: "250px 1fr", gap: "32px", alignItems: "start" }}>
+      <div className={styles.layout}>
         
         {/* Sidebar */}
-        <div style={{ backgroundColor: "white", borderRadius: "12px", padding: "24px", boxShadow: "0 4px 20px rgba(0,0,0,0.05)", position: "sticky", top: "100px" }}>
+        <div className={styles.sidebar}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px", paddingBottom: "24px", borderBottom: "1px solid var(--color-line)" }}>
             <div style={{ width: "48px", height: "48px", backgroundColor: "var(--color-orange)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
               <User size={24} />
@@ -188,7 +189,7 @@ export default function DashboardPage() {
         <div>
           {activeTab === "dashboard" && (
             <>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "32px" }}>
+              <div className={styles.headerRow}>
                 <div>
                   <h1 style={{ fontSize: "32px", fontWeight: 700, color: "var(--color-black)", margin: "0 0 8px" }}>{t.title}</h1>
                   <p style={{ fontSize: "16px", color: "var(--color-charcoal)" }}>{t.welcome}</p>
@@ -202,7 +203,7 @@ export default function DashboardPage() {
               </div>
               
               {/* Stats Row */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px", marginBottom: "32px" }}>
+              <div className={styles.statsRow}>
                 {t.stats.map((stat, idx) => (
                   <div key={idx} style={{ backgroundColor: "white", padding: "24px", borderRadius: "12px", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
                     <div style={{ fontSize: "14px", color: "var(--color-charcoal)", fontWeight: 600, marginBottom: "8px" }}>{stat.label}</div>
@@ -272,7 +273,7 @@ export default function DashboardPage() {
 
           {activeTab === "bookings" && (
             <div style={{ backgroundColor: "white", borderRadius: "12px", padding: "32px", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+              <div className={styles.headerRow}>
                 <h2 style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-black)", margin: 0 }}>{t.allBookings}</h2>
                 <Link href="/#booking" style={{ backgroundColor: "var(--color-orange)", color: "white", padding: "8px 16px", borderRadius: "8px", fontWeight: 600, fontSize: "14px", textDecoration: "none" }}>
                   + {t.bookNew}
@@ -357,7 +358,7 @@ export default function DashboardPage() {
               <h2 style={{ fontSize: "24px", fontWeight: 700, color: "var(--color-black)", marginBottom: "32px", margin: 0 }}>{t.settingsTitle}</h2>
               
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                <div className={styles.settingsRow}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-black)" }}>{t.settingsForm.name}</label>
                     <input type="text" defaultValue="Acme Corp" style={{ padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", fontSize: "15px", outline: "none" }} />
@@ -368,7 +369,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
                 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                <div className={styles.settingsRow}>
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                     <label style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-black)" }}>{t.settingsForm.phone}</label>
                     <input type="tel" defaultValue="+8801700000000" style={{ padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", fontSize: "15px", outline: "none" }} />

@@ -17,15 +17,15 @@ export default function LegalPage({ params }: { params: Promise<{ slug: string }
   const rawTitle = slug.split("-").map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
   
   const currentLink = footerQuickLinks.find(l => l.url.includes(slug));
-  const pageTitle = currentLink?.text || rawTitle;
+  const pageTitle = currentLink ? currentLink.text[lang as "en"|"bn"] : rawTitle;
   
   const content = {
     en: {
       back: "Back to Home",
       title: pageTitle,
       lastUpdated: "Last Updated: September 19, 2026",
-      description: currentLink?.pageSubtitleEn || `This is the official ${rawTitle} for Surokkha365.`,
-      content: currentLink?.pageContentEn || `Welcome to the ${rawTitle} of Surokkha365. 
+      description: currentLink?.pageSubtitle?.en || `This is the official ${rawTitle} for Surokkha365.`,
+      content: currentLink?.pageContent?.en || `Welcome to the ${rawTitle} of Surokkha365. 
       
       We are currently drafting the finalized legal documentation for this section to ensure compliance with local regulations and to protect both our customers and our business. 
       
@@ -37,8 +37,8 @@ export default function LegalPage({ params }: { params: Promise<{ slug: string }
       back: "হোমে ফিরে যান",
       title: pageTitle,
       lastUpdated: "সর্বশেষ আপডেট: ১৯ সেপ্টেম্বর, ২০২৬",
-      description: currentLink?.pageSubtitleBn || `এটি সুরক্ষা৩৬৫ এর অফিসিয়াল ${rawTitle}।`,
-      content: currentLink?.pageContentBn || `সুরক্ষা৩৬৫ এর ${rawTitle} পৃষ্ঠায় স্বাগতম। 
+      description: currentLink?.pageSubtitle?.bn || `এটি সুরক্ষা৩৬৫ এর অফিসিয়াল ${rawTitle}।`,
+      content: currentLink?.pageContent?.bn || `সুরক্ষা৩৬৫ এর ${rawTitle} পৃষ্ঠায় স্বাগতম। 
       
       আমরা বর্তমানে এই বিভাগের জন্য চূড়ান্ত আইনি ডকুমেন্টেশন তৈরি করছি। স্থানীয় আইন মেনে চলা এবং আমাদের গ্রাহক ও ব্যবসা উভয়কে সুরক্ষিত করার জন্যই এই পদক্ষেপ।
       

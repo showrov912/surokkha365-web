@@ -79,8 +79,8 @@ export default function ProblemBlock() {
   const content = {
     en: {
       badge: "The Problem",
-      title: problemData.title,
-      facilitiesText: problemData.desc,
+      title: problemData.title.en,
+      facilitiesText: problemData.desc.en,
       homesText: "Homeowners face a trust gap. Unverified technicians enter personal spaces without accountability or guaranteed results.",
       stats: [
         { value: "100%", label: "Audit-Ready" },
@@ -93,8 +93,8 @@ export default function ProblemBlock() {
     },
     bn: {
       badge: "সমস্যা",
-      title: "ব্যবসা, বাসা এবং কমিউনিটির সুরক্ষা",
-      facilitiesText: "ফ্যাসিলিটিগুলো এমন ভেন্ডরদের নিয়ে সমস্যায় পড়ে যারা সঠিক কেমিক্যাল ব্যবহার করে না এবং অডিটের জন্য উপযুক্ত রিপোর্ট দিতে ব্যর্থ হয়।",
+      title: problemData.title.bn,
+      facilitiesText: problemData.desc.bn,
       homesText: "বাসাবাড়ির ক্ষেত্রে আস্থার অভাব রয়েছে। অদক্ষ ও অপরিচিত টেকনিশিয়ানরা কোনো জবাবদিহিতা ছাড়াই কাজ করে।",
       stats: [
         { value: "১০০%", label: "অডিট-রেডি" },

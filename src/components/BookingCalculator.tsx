@@ -76,7 +76,7 @@ export default function BookingCalculator() {
       areaLabel: "Square Feet *(Required: at least 200 sqft)",
       areaPlaceholder: "0",
       infoText: "Enter Square Feet to see pricing",
-      btn: heroData.ctaText,
+      btn: heroData.ctaText.en,
       successTitle: "Booking Request Received!",
       successDesc: "One of our pest control experts will contact you shortly to confirm your booking and schedule the visit.",
       successBtn: "Make Another Booking"
@@ -93,7 +93,7 @@ export default function BookingCalculator() {
       areaLabel: "আয়তন (স্কয়ার ফিট) *(ন্যূনতম ২০০)",
       areaPlaceholder: "০",
       infoText: "মূল্য জানতে স্কয়ার ফিট লিখুন",
-      btn: "বুক করুন",
+      btn: heroData.ctaText.bn,
       successTitle: "বুকিং রিকোয়েস্ট রিসিভড!",
       successDesc: "আমাদের একজন এক্সপার্ট শীঘ্রই আপনার সাথে যোগাযোগ করবেন এই বুকিংটি কনফার্ম করার জন্য।",
       successBtn: "আরেকটি বুকিং করুন"
@@ -155,7 +155,7 @@ export default function BookingCalculator() {
                 <select className={styles.input} value={service} onChange={e => setService(e.target.value)} required>
                   <option value="" disabled>{t.servicePlaceholder}</option>
                   {servicesData.map((s) => (
-                    <option key={s.id} value={s.title}>{s.title}</option>
+                    <option key={s.id} value={s.title.en}>{s.title[lang as 'en' | 'bn']}</option>
                   ))}
                 </select>
               </div>

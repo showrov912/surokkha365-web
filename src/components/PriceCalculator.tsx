@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useWebsiteData } from "@/context/WebsiteContext";
 import Link from "next/link";
 import { Calculator, ArrowRight } from "lucide-react";
+import styles from "./PriceCalculator.module.css";
 
 export default function PriceCalculator() {
   const { pricingData, servicesData } = useWebsiteData();
@@ -11,7 +12,7 @@ export default function PriceCalculator() {
   const divisions = pricingData ? Object.keys(pricingData) : [];
   const defaultDivision = divisions.length > 0 ? divisions[0] : "";
   
-  const pestTypes = servicesData ? servicesData.map(s => s.title) : [];
+  const pestTypes = servicesData ? servicesData.map(s => s.title.en) : [];
   const defaultPest = pestTypes.length > 0 ? pestTypes[0] : "";
 
   const [selectedDivision, setSelectedDivision] = useState(defaultDivision);
@@ -32,7 +33,7 @@ export default function PriceCalculator() {
   const totalPrice = typeof areaSqFt === "number" && areaSqFt > 0 ? areaSqFt * pricePerSqFt : 0;
 
   return (
-    <div style={{ backgroundColor: "white", padding: "48px", borderRadius: "16px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", border: "1px solid var(--color-line)", maxWidth: "600px", margin: "0 auto" }}>
+    <div className={styles.container}>
       <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px" }}>
         <div style={{ width: "48px", height: "48px", borderRadius: "12px", backgroundColor: "rgba(253, 69, 2, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--color-orange)" }}>
           <Calculator size={24} />

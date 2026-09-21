@@ -1,0 +1,41 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 32px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.summaryCol {
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .summaryCol {
+    position: static;
+  }
+}

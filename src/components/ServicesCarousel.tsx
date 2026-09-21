@@ -12,66 +12,28 @@ export default function ServicesCarousel() {
   const { servicesData } = useWebsiteData();
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const content = {
+  const t = {
     en: {
       badge: "Our Services",
       title: "Expert Solutions For Every Pest Problem",
-      services: servicesData.map((s) => ({
-        id: s.id.toString(),
-        title: s.title,
-        desc: s.desc,
-        imagePath: s.image,
-        topImage: s.topImage || s.image
-      })),
       bookNow: "Book Now",
       viewAll: "See All Services"
     },
     bn: {
       badge: "আমাদের সার্ভিসসমূহ",
       title: "প্রতিটি পেস্ট সমস্যার এক্সপার্ট সমাধান",
-      services: [
-        {
-          id: "termite",
-          title: "উইপোকা",
-          desc: "আমাদের এক্সপার্ট সার্ভিসের মাধ্যমে আপনার বাড়িকে উইপোকা থেকে রক্ষা করুন।",
-          imagePath: "/pest1.jpg",
-          topImage: "/pest2.jpg"
-        },
-        {
-          id: "cockroach",
-          title: "তেলাপোকা",
-          desc: "আমাদের কার্যকর সমাধানে তেলাপোকা থেকে মুক্তি পান।",
-          imagePath: "/pest3.jpg",
-          topImage: "/pest4.jpg"
-        },
-        {
-          id: "rodent",
-          title: "ইঁদুর",
-          desc: "আমাদের নিয়ন্ত্রণ পদ্ধতির মাধ্যমে আপনার সম্পত্তি ইঁদুর থেকে নিরাপদ রাখুন।",
-          imagePath: "/pest2.jpg",
-          topImage: "/pest1.jpg"
-        },
-        {
-          id: "mosquito",
-          title: "মশা",
-          desc: "প্রমাণিত পদ্ধতির মাধ্যমে আপনার ঘর মশা-মুক্ত রাখুন।",
-          imagePath: "/pest4.jpg",
-          topImage: "/pest3.jpg"
-        },
-        {
-          id: "bedbug",
-          title: "ছারপোকা",
-          desc: "শান্তিপূর্ণ ঘুমের জন্য ছারপোকা থেকে মুক্তি পান।",
-          imagePath: "/pest1.jpg",
-          topImage: "/pest2.jpg"
-        }
-      ],
       bookNow: "বুক করুন",
       viewAll: "সকল সার্ভিস দেখুন"
     }
-  };
+  }[lang];
 
-  const t = content[lang];
+  const mappedServices = servicesData.map((s) => ({
+    id: s.id.toString(),
+    title: s.title[lang as 'en' | 'bn'],
+    desc: s.desc[lang as 'en' | 'bn'],
+    imagePath: s.image,
+    topImage: s.topImage || s.image
+  }));
 
   return (
     <section className={styles.servicesSection}>
@@ -88,7 +50,7 @@ export default function ServicesCarousel() {
 
           <div className={styles.carouselContainer}>
             <div className={styles.carousel} ref={carouselRef}>
-              {t.services.map((service, index) => {
+              {mappedServices.map((service, index) => {
                 return (
                   <div key={index} className={styles.card}>
                     

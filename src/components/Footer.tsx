@@ -41,7 +41,7 @@ export default function Footer() {
           
           {/* Column 1: About */}
           <div style={{ paddingRight: "24px" }}>
-            <Image src="/logo-white.png" alt="Surokkha365" width={200} height={50} style={{ marginBottom: "32px", objectFit: "contain" }} />
+            <Image src="/orange-favicon.svg" alt="Surokkha365" width={50} height={53} style={{ marginBottom: "32px", objectFit: "contain" }} />
             <h4 style={headingStyle}>About Us</h4>
             <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "13px", lineHeight: "1.6" }}>
               At Surokkha365, we're dedicated to creating safe, healthy spaces for homes and businesses across Bangladesh. We operate with expert technicians and compliance-grade methods.
@@ -53,7 +53,7 @@ export default function Footer() {
             <h4 style={headingStyle}>Our Services</h4>
             <ul style={listStyle}>
               {footerServices && footerServices.map(link => (
-                <li key={link.id}><Link href={link.url} style={linkStyle}>• {link.text}</Link></li>
+                <li key={link.id}><Link href={link.url} style={linkStyle}>• {link.text[lang as 'en' | 'bn']}</Link></li>
               ))}
             </ul>
           </div>
@@ -63,7 +63,7 @@ export default function Footer() {
             <h4 style={headingStyle}>Quick links</h4>
             <ul style={{ ...listStyle, marginBottom: "32px" }}>
               {footerQuickLinks && footerQuickLinks.map(link => (
-                <li key={link.id}><Link href={link.url} style={linkStyle}>• {link.text}</Link></li>
+                <li key={link.id}><Link href={link.url} style={linkStyle}>• {link.text[lang as 'en' | 'bn']}</Link></li>
               ))}
             </ul>
 

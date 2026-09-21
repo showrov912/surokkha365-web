@@ -10,8 +10,6 @@
 .bgImage {
   position: absolute;
   inset: 0;
-  /* Placeholder for actual background image */
-  background: url('/hero-bg.jpg') center/cover no-repeat;
   z-index: -2;
 }
 

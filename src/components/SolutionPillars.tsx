@@ -8,7 +8,7 @@ import { useWebsiteData } from "@/context/WebsiteContext";
 
 export default function SolutionPillars() {
   const { lang } = useLanguage();
-  const { differencesData } = useWebsiteData();
+  const { differencesData, teamImage } = useWebsiteData();
 
   const iconMap = [Calculator, ShieldCheck, FileText, CheckCircle2];
 
@@ -19,20 +19,19 @@ export default function SolutionPillars() {
       subtitle: "See the exact method, exact chemical, and exact price before you commit.",
       features: differencesData.map((d, index) => ({
         icon: iconMap[index % iconMap.length],
-        title: d.title,
-        desc: d.desc
+        title: d.title.en,
+        desc: d.desc.en
       }))
     },
     bn: {
       badge: "আমাদের বিশেষত্ব",
       title: "পেস্ট কন্ট্রোলে আপনার বিশ্বস্ত পার্টনার",
       subtitle: "বুক করার আগেই সঠিক পদ্ধতি, কেমিক্যাল এবং মূল্য জেনে নিন।",
-      features: [
-        { icon: Calculator, title: "স্বচ্ছ মূল্য তালিকা", desc: "কোনো লুকানো চার্জ নেই।" },
-        { icon: ShieldCheck, title: "ভেরিফাইড টেকনিশিয়ান", desc: "যাচাইকৃত প্রফেশনালস।" },
-        { icon: FileText, title: "অডিট-রেডি রিপোর্ট", desc: "ডিজিটাল কমপ্লায়েন্স লগ।" },
-        { icon: CheckCircle2, title: "ফলাফলের গ্যারান্টি", desc: "ওয়ারেন্টির অন্তর্ভুক্ত ফলো-আপ।" }
-      ]
+      features: differencesData.map((d, index) => ({
+        icon: iconMap[index % iconMap.length],
+        title: d.title.bn,
+        desc: d.desc.bn
+      }))
     }
   };
 
@@ -76,7 +75,7 @@ export default function SolutionPillars() {
             {/* Using a placeholder for the technicians image */}
             <div className={styles.imagePlaceholder}>
               <Image 
-                src="/technicians.jpg" 
+                src={teamImage} 
                 alt="Our Pest Control Technicians"
                 fill
                 style={{ objectFit: 'cover', borderRadius: '24px' }}

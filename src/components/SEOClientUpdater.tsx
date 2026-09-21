@@ -3,9 +3,11 @@
 import { useEffect } from "react";
 import { useWebsiteData } from "@/context/WebsiteContext";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "@/components/LanguageContext";
 
 export default function SEOClientUpdater() {
   const { seoData } = useWebsiteData();
+  const { lang } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -13,7 +15,7 @@ export default function SEOClientUpdater() {
     // Avoid overwriting specific blog post SEO that is generated dynamically
     if (pathname === "/") {
       if (seoData.title) {
-        document.title = seoData.title;
+        document.title = seoData.title[lang as "en"|"bn"] || seoData.title.en;
       }
       
       if (seoData.description) {
@@ -23,7 +25,7 @@ export default function SEOClientUpdater() {
           metaDesc.setAttribute("name", "description");
           document.head.appendChild(metaDesc);
         }
-        metaDesc.setAttribute("content", seoData.description);
+        metaDesc.setAttribute("content", seoData.description[lang as "en"|"bn"] || seoData.description.en);
       }
 
       if (seoData.keywords) {
@@ -33,7 +35,7 @@ export default function SEOClientUpdater() {
           metaKeywords.setAttribute("name", "keywords");
           document.head.appendChild(metaKeywords);
         }
-        metaKeywords.setAttribute("content", seoData.keywords);
+        metaKeywords.setAttribute("content", seoData.keywords[lang as "en"|"bn"] || seoData.keywords.en);
       }
     }
   }, [seoData, pathname]);

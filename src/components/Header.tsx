@@ -47,7 +47,7 @@ export default function Header() {
     <header className={styles.header}>
       {/* Promo Bar */}
       <div className={styles.promoBar}>
-        <div className={`grid-container ${styles.promoInner}`}>
+        <div className={styles.promoInner}>
           <div className={styles.promoText}>
             {t.promoPrefix} <Link href="/#booking" style={{ textDecoration: "underline", fontWeight: 700, marginLeft: "4px" }}>{t.promoAction}</Link>
           </div>
@@ -72,14 +72,14 @@ export default function Header() {
 
       {/* Main Header */}
       <div className={styles.mainHeader}>
-        <div className={`grid-container ${styles.headerInner}`}>
+        <div className={styles.headerInner}>
           <div className={styles.logoContainer}>
             <Link href="/" onClick={handleLogoClick}>
               <Image
-                src="/logo-white.png"
+                src="/orange-favicon.svg"
                 alt="Surokkha365 Logo"
-                width={200}
-                height={50}
+                width={50}
+                height={53}
                 priority
               />
             </Link>

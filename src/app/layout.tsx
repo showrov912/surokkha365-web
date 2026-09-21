@@ -5,6 +5,7 @@ import { WebsiteProvider } from "@/context/WebsiteContext";
 import { JourneyProvider } from "@/context/JourneyContext";
 import { LanguageProvider } from "@/components/LanguageContext";
 import SEOClientUpdater from "@/components/SEOClientUpdater";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -26,6 +27,9 @@ export const metadata: Metadata = {
     default: "Surokkha365 | Professional Pest Control Services in Dhaka",
   },
   description: "Evidence-based pest control in Dhaka & Bangladesh. Transparent per-sq-ft pricing. Specialized in termite, cockroach, and rodent eradication. Audit-ready reports.",
+  icons: {
+    icon: '/orange-favicon.svg',
+  }
 };
 
 export default function RootLayout({
@@ -43,6 +47,7 @@ export default function RootLayout({
             <LanguageProvider>
               <SEOClientUpdater />
               {children}
+              <WhatsAppWidget />
             </LanguageProvider>
           </WebsiteProvider>
         </JourneyProvider>

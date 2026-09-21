@@ -18,21 +18,21 @@ export default function ServicePage({ params }: { params: Promise<{ slug: string
   
   const currentService = servicesData.find(s => s.slug === slug);
   const currentFooterService = footerServices.find(l => l.url.includes(slug));
-  const serviceTitle = currentFooterService?.text || currentService?.title || rawTitle;
+  const serviceTitle = currentFooterService?.text[lang as "en"|"bn"] || currentService?.title[lang as "en"|"bn"] || rawTitle;
   
   const content = {
     en: {
       back: "Back to Home",
       title: serviceTitle,
-      subtitle: currentFooterService?.pageSubtitleEn || currentService?.pageSubtitleEn || `Professional ${rawTitle} services by Surokkha365.`,
-      description: currentFooterService?.pageContentEn || currentService?.pageContentEn || "We are currently updating our detailed service documentation. Please check back soon or contact us directly to book this service.",
+      subtitle: currentFooterService?.pageSubtitle?.en || currentService?.pageSubtitle?.en || `Professional ${rawTitle} services by Surokkha365.`,
+      description: currentFooterService?.pageContent?.en || currentService?.pageContent?.en || "We are currently updating our detailed service documentation. Please check back soon or contact us directly to book this service.",
       bookNow: "Book Now"
     },
     bn: {
       back: "হোমে ফিরে যান",
       title: serviceTitle, 
-      subtitle: currentFooterService?.pageSubtitleBn || currentService?.pageSubtitleBn || `সুরক্ষা৩৬৫ এর প্রফেশনাল ${rawTitle} সার্ভিস।`,
-      description: currentFooterService?.pageContentBn || currentService?.pageContentBn || "আমরা বর্তমানে আমাদের বিস্তারিত সার্ভিস ডকুমেন্টেশন আপডেট করছি। অনুগ্রহ করে শীঘ্রই আবার চেক করুন অথবা সরাসরি বুক করতে আমাদের সাথে যোগাযোগ করুন।",
+      subtitle: currentFooterService?.pageSubtitle?.bn || currentService?.pageSubtitle?.bn || `সুরক্ষা৩৬৫ এর প্রফেশনাল ${rawTitle} সার্ভিস।`,
+      description: currentFooterService?.pageContent?.bn || currentService?.pageContent?.bn || "আমরা বর্তমানে আমাদের বিস্তারিত সার্ভিস ডকুমেন্টেশন আপডেট করছি। অনুগ্রহ করে শীঘ্রই আবার চেক করুন অথবা সরাসরি বুক করতে আমাদের সাথে যোগাযোগ করুন।",
       bookNow: "বুক করুন"
     }
   };

@@ -18,6 +18,7 @@ export default function WebsiteEditor() {
     servicesData, setServicesData,
     problemData, setProblemData,
     differencesData, setDifferencesData,
+    teamImage, setTeamImage,
     testimonialsData, setTestimonialsData,
     testimonialBg, setTestimonialBg,
     footerServices, setFooterServices,
@@ -97,38 +98,86 @@ export default function WebsiteEditor() {
                     <Globe size={16} color="var(--color-orange)" /> Page SEO
                   </h3>
                   
-                  <div>
-                    <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Meta Title</label>
-                    <input type="text" value={seoData.title} onChange={(e) => setSeoData({...seoData, title: e.target.value})} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Meta Title (English)</label>
+                      <input type="text" value={seoData.title.en} onChange={(e) => setSeoData({...seoData, title: {...seoData.title, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Meta Title (Bangla)</label>
+                      <input type="text" value={seoData.title.bn} onChange={(e) => setSeoData({...seoData, title: {...seoData.title, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
                   </div>
 
-                  <div>
-                    <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Meta Description</label>
-                    <textarea value={seoData.description} onChange={(e) => setSeoData({...seoData, description: e.target.value})} rows={2} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
-                  </div>
+
                   
-                  <div>
-                    <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Keywords (Comma Separated)</label>
-                    <input type="text" value={seoData.keywords} onChange={(e) => setSeoData({...seoData, keywords: e.target.value})} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Meta Description (English)</label>
+                      <textarea rows={3} value={seoData.description.en} onChange={(e) => setSeoData({...seoData, description: {...seoData.description, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px", resize: "vertical" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Meta Description (Bangla)</label>
+                      <textarea rows={3} value={seoData.description.bn} onChange={(e) => setSeoData({...seoData, description: {...seoData.description, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px", resize: "vertical" }} />
+                    </div>
                   </div>
+
+                  
+                  
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Keywords (Comma Separated) (English)</label>
+                      <input type="text" value={seoData.keywords.en} onChange={(e) => setSeoData({...seoData, keywords: {...seoData.keywords, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Keywords (Comma Separated) (Bangla)</label>
+                      <input type="text" value={seoData.keywords.bn} onChange={(e) => setSeoData({...seoData, keywords: {...seoData.keywords, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                  </div>
+
                 </div>
                 
                 <hr style={{ border: "none", borderTop: "1px dashed var(--color-line)", margin: "8px 0" }} />
                 
-                <div>
-                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Main Headline</label>
-                  <input type="text" value={heroData.headline} onChange={(e) => setHeroData({...heroData, headline: e.target.value})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
-                </div>
                 
-                <div>
-                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Subheadline</label>
-                  <textarea value={heroData.subheadline} onChange={(e) => setHeroData({...heroData, subheadline: e.target.value})} rows={3} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px", resize: "vertical" }} />
-                </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Main Headline (English)</label>
+                      <input type="text" value={heroData.headline.en} onChange={(e) => setHeroData({...heroData, headline: {...heroData.headline, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Main Headline (Bangla)</label>
+                      <input type="text" value={heroData.headline.bn} onChange={(e) => setHeroData({...heroData, headline: {...heroData.headline, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                  </div>
 
-                <div>
-                  <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Button Text</label>
-                  <input type="text" value={heroData.ctaText} onChange={(e) => setHeroData({...heroData, ctaText: e.target.value})} style={{ width: "100%", maxWidth: "300px", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
-                </div>
+                
+                
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Subheadline (English)</label>
+                      <textarea rows={3} value={heroData.subheadline.en} onChange={(e) => setHeroData({...heroData, subheadline: {...heroData.subheadline, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px", resize: "vertical" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Subheadline (Bangla)</label>
+                      <textarea rows={3} value={heroData.subheadline.bn} onChange={(e) => setHeroData({...heroData, subheadline: {...heroData.subheadline, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px", resize: "vertical" }} />
+                    </div>
+                  </div>
+
+
+                
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Button Text (English)</label>
+                      <input type="text" value={heroData.ctaText.en} onChange={(e) => setHeroData({...heroData, ctaText: {...heroData.ctaText, en: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Button Text (Bangla)</label>
+                      <input type="text" value={heroData.ctaText.bn} onChange={(e) => setHeroData({...heroData, ctaText: {...heroData.ctaText, bn: e.target.value}})} style={{ width: "100%", padding: "12px 16px", border: "1px solid var(--color-line)", borderRadius: "8px", outline: "none", fontSize: "14px" }} />
+                    </div>
+                  </div>
+
 
                 <div>
                   <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Background Image</label>
@@ -191,18 +240,36 @@ export default function WebsiteEditor() {
 
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                       <div>
-                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Service Title</label>
-                        <input type="text" value={service.title} onChange={(e) => {
+                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Service Title (English)</label>
+                        <input type="text" value={service.title.en} onChange={(e) => {
                           const newServices = [...servicesData];
-                          newServices[index].title = e.target.value;
+                          newServices[index].title = { ...newServices[index].title, en: e.target.value };
                           setServicesData(newServices);
                         }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
                       </div>
                       <div>
-                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description</label>
-                        <input type="text" value={service.desc} onChange={(e) => {
+                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Service Title (Bangla)</label>
+                        <input type="text" value={service.title.bn} onChange={(e) => {
                           const newServices = [...servicesData];
-                          newServices[index].desc = e.target.value;
+                          newServices[index].title = { ...newServices[index].title, bn: e.target.value };
+                          setServicesData(newServices);
+                        }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                      </div>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                      <div>
+                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description (English)</label>
+                        <input type="text" value={service.desc.en} onChange={(e) => {
+                          const newServices = [...servicesData];
+                          newServices[index].desc = { ...newServices[index].desc, en: e.target.value };
+                          setServicesData(newServices);
+                        }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                      </div>
+                      <div>
+                        <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description (Bangla)</label>
+                        <input type="text" value={service.desc.bn} onChange={(e) => {
+                          const newServices = [...servicesData];
+                          newServices[index].desc = { ...newServices[index].desc, bn: e.target.value };
                           setServicesData(newServices);
                         }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
                       </div>
@@ -214,7 +281,7 @@ export default function WebsiteEditor() {
                       <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "center" }}>
                         <span style={{ fontSize: "11px", fontWeight: 600, color: "var(--color-charcoal)" }}>Top Background</span>
                         <div style={{ width: "80px", height: "40px", borderRadius: "4px", overflow: "hidden", position: "relative", border: "1px solid var(--color-line)" }}>
-                          <Image src={service.topImage} alt={service.title} fill style={{ objectFit: "cover" }} />
+                          <Image src={service.topImage} alt={service.title.en} fill style={{ objectFit: "cover" }} />
                         </div>
                         <label style={{ padding: "6px 10px", border: "1px solid var(--color-line)", backgroundColor: "white", borderRadius: "6px", fontSize: "11px", fontWeight: 600, cursor: "pointer" }}>
                           Change Image
@@ -231,7 +298,7 @@ export default function WebsiteEditor() {
                       <div style={{ display: "flex", flexDirection: "column", gap: "8px", alignItems: "center" }}>
                         <span style={{ fontSize: "11px", fontWeight: 600, color: "var(--color-charcoal)" }}>Circle Icon</span>
                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", overflow: "hidden", position: "relative", border: "1px solid var(--color-line)" }}>
-                          <Image src={service.image} alt={service.title} fill style={{ objectFit: "cover" }} />
+                          <Image src={service.image} alt={service.title.en} fill style={{ objectFit: "cover" }} />
                         </div>
                         <label style={{ padding: "6px 10px", border: "1px solid var(--color-line)", backgroundColor: "white", borderRadius: "6px", fontSize: "11px", fontWeight: 600, cursor: "pointer" }}>
                           Change Icon
@@ -261,17 +328,17 @@ export default function WebsiteEditor() {
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <div>
                           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Page Subtitle (English)</label>
-                          <input type="text" value={service.pageSubtitleEn || ""} onChange={(e) => {
+                          <input type="text" value={service.pageSubtitle?.en || ""} onChange={(e) => {
                             const newServices = [...servicesData];
-                            newServices[index].pageSubtitleEn = e.target.value;
+                            newServices[index].pageSubtitle = { en: e.target.value, bn: newServices[index].pageSubtitle?.bn || "" };
                             setServicesData(newServices);
                           }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
                         </div>
                         <div>
                           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Page Subtitle (Bengali)</label>
-                          <input type="text" value={service.pageSubtitleBn || ""} onChange={(e) => {
+                          <input type="text" value={service.pageSubtitle?.bn || ""} onChange={(e) => {
                             const newServices = [...servicesData];
-                            newServices[index].pageSubtitleBn = e.target.value;
+                            newServices[index].pageSubtitle = { en: newServices[index].pageSubtitle?.en || "", bn: e.target.value };
                             setServicesData(newServices);
                           }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
                         </div>
@@ -280,17 +347,17 @@ export default function WebsiteEditor() {
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                         <div>
                           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Page Content (English)</label>
-                          <textarea value={service.pageContentEn || ""} onChange={(e) => {
+                          <textarea value={service.pageContent?.en || ""} onChange={(e) => {
                             const newServices = [...servicesData];
-                            newServices[index].pageContentEn = e.target.value;
+                            newServices[index].pageContent = { en: e.target.value, bn: newServices[index].pageContent?.bn || "" };
                             setServicesData(newServices);
                           }} rows={3} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
                         </div>
                         <div>
                           <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Page Content (Bengali)</label>
-                          <textarea value={service.pageContentBn || ""} onChange={(e) => {
+                          <textarea value={service.pageContent?.bn || ""} onChange={(e) => {
                             const newServices = [...servicesData];
-                            newServices[index].pageContentBn = e.target.value;
+                            newServices[index].pageContent = { en: newServices[index].pageContent?.en || "", bn: e.target.value };
                             setServicesData(newServices);
                           }} rows={3} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
                         </div>
@@ -300,7 +367,7 @@ export default function WebsiteEditor() {
                 ))}
                 
                 <button 
-                  onClick={() => setServicesData([...servicesData, { id: Date.now(), title: "New Service", desc: "Service description here", image: "/pest2.jpg", topImage: "/pest1.jpg" }])}
+                  onClick={() => setServicesData([...servicesData, { id: Date.now(), title: {en: "New Service", bn: "নতুন সার্ভিস"}, desc: {en: "Service description here", bn: "সার্ভিসের বিবরণ"}, image: "/pest2.jpg", topImage: "/pest1.jpg" }])}
                   style={{ border: "2px dashed var(--color-line)", borderRadius: "8px", padding: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", cursor: "pointer", background: "white", color: "var(--color-black)", fontWeight: 600, fontSize: "14px" }}
                 >
                   <Plus size={18} /> Add New Service
@@ -343,13 +410,25 @@ export default function WebsiteEditor() {
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                   <h3 style={{ fontSize: "15px", fontWeight: 700, color: "var(--color-black)", margin: 0, borderBottom: "1px solid var(--color-line)", paddingBottom: "8px" }}>Problem Section</h3>
                   
-                  <div>
-                    <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Title</label>
-                    <input type="text" value={problemData.title} onChange={(e) => setProblemData({...problemData, title: e.target.value})} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Title (English)</label>
+                      <input type="text" value={problemData.title.en} onChange={(e) => setProblemData({...problemData, title: { ...problemData.title, en: e.target.value }})} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Title (Bangla)</label>
+                      <input type="text" value={problemData.title.bn} onChange={(e) => setProblemData({...problemData, title: { ...problemData.title, bn: e.target.value }})} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px" }} />
+                    </div>
                   </div>
-                  <div>
-                    <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description</label>
-                    <textarea value={problemData.desc} onChange={(e) => setProblemData({...problemData, desc: e.target.value})} rows={3} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div>
+                      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description (English)</label>
+                      <textarea value={problemData.desc.en} onChange={(e) => setProblemData({...problemData, desc: { ...problemData.desc, en: e.target.value }})} rows={3} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                    </div>
+                    <div>
+                      <label style={{ display: "block", fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)", marginBottom: "6px" }}>Description (Bangla)</label>
+                      <textarea value={problemData.desc.bn} onChange={(e) => setProblemData({...problemData, desc: { ...problemData.desc, bn: e.target.value }})} rows={3} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                    </div>
                   </div>
                   
                   <div>
@@ -375,28 +454,58 @@ export default function WebsiteEditor() {
                     {differencesData.map((diff, index) => (
                       <div key={diff.id} style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px", border: "1px solid var(--color-line)", borderRadius: "8px", backgroundColor: "#f8fafc" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <input type="text" value={diff.title} onChange={(e) => {
-                            const newData = [...differencesData];
-                            newData[index].title = e.target.value;
-                            setDifferencesData(newData);
-                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "150px" }} />
+                          <span style={{ fontSize: "13px", fontWeight: 600 }}>Item {index + 1}</span>
                           <button onClick={() => setDifferencesData(differencesData.filter(d => d.id !== diff.id))} style={{ background: "none", border: "none", color: "red", cursor: "pointer" }}><Trash2 size={14} /></button>
                         </div>
-                        <input type="text" value={diff.desc} onChange={(e) => {
-                          const newData = [...differencesData];
-                          newData[index].desc = e.target.value;
-                          setDifferencesData(newData);
-                        }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "12px", width: "100%" }} />
+                        
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                          <input type="text" placeholder="Title (EN)" value={diff.title.en} onChange={(e) => {
+                            const newData = [...differencesData];
+                            newData[index].title = { ...newData[index].title, en: e.target.value };
+                            setDifferencesData(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} />
+                          <input type="text" placeholder="Title (BN)" value={diff.title.bn} onChange={(e) => {
+                            const newData = [...differencesData];
+                            newData[index].title = { ...newData[index].title, bn: e.target.value };
+                            setDifferencesData(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} />
+                        </div>
+
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                          <input type="text" placeholder="Description (EN)" value={diff.desc.en} onChange={(e) => {
+                            const newData = [...differencesData];
+                            newData[index].desc = { ...newData[index].desc, en: e.target.value };
+                            setDifferencesData(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "12px", width: "100%" }} />
+                          <input type="text" placeholder="Description (BN)" value={diff.desc.bn} onChange={(e) => {
+                            const newData = [...differencesData];
+                            newData[index].desc = { ...newData[index].desc, bn: e.target.value };
+                            setDifferencesData(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "12px", width: "100%" }} />
+                        </div>
                       </div>
                     ))}
                   </div>
 
                   <button 
-                    onClick={() => setDifferencesData([...differencesData, { id: Date.now(), title: "New Item", desc: "Description here" }])}
+                    onClick={() => setDifferencesData([...differencesData, { id: Date.now(), title: {en: "New Item", bn: "নতুন আইটেম"}, desc: {en: "Description here", bn: "এখানে বর্ণনা"} }])}
                     style={{ padding: "10px", border: "1px dashed var(--color-line)", backgroundColor: "white", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
                   >
                     <Plus size={14} /> Add Difference Item
                   </button>
+
+                  <div style={{ marginTop: "16px", paddingTop: "16px", borderTop: "1px solid var(--color-line)" }}>
+                    <label style={{ display: "block", fontSize: "13px", fontWeight: 600, color: "var(--color-black)", marginBottom: "8px" }}>Technician Team Photo</label>
+                    <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                      <div style={{ width: "120px", height: "80px", borderRadius: "4px", overflow: "hidden", position: "relative", border: "1px solid var(--color-line)" }}>
+                        <Image src={teamImage} alt="Team" fill style={{ objectFit: "cover" }} />
+                      </div>
+                      <label style={{ padding: "8px 12px", border: "1px solid var(--color-line)", backgroundColor: "white", borderRadius: "6px", fontSize: "12px", fontWeight: 600, cursor: "pointer" }}>
+                        Change Image
+                        <input type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => handleImageUpload(e, (url) => setTeamImage(url))} />
+                      </label>
+                    </div>
+                  </div>
                 </div>
 
               </div>
@@ -459,18 +568,43 @@ export default function WebsiteEditor() {
                         <Trash2 size={14} /> Remove
                       </button>
                     </div>
-                    <input type="text" value={review.name} onChange={(e) => {
-                      const newData = [...testimonialsData];
-                      newData[index].name = e.target.value;
-                      setTestimonialsData(newData);
-                    }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", fontWeight: 600 }} />
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                      <div>
+                        <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)" }}>Customer Name (English)</label>
+                        <input type="text" value={review.name.en} onChange={(e) => {
+                          const newData = [...testimonialsData];
+                          newData[index].name = { ...newData[index].name, en: e.target.value };
+                          setTestimonialsData(newData);
+                        }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", fontWeight: 600 }} />
+                      </div>
+                      <div>
+                        <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)" }}>Customer Name (Bangla)</label>
+                        <input type="text" value={review.name.bn} onChange={(e) => {
+                          const newData = [...testimonialsData];
+                          newData[index].name = { ...newData[index].name, bn: e.target.value };
+                          setTestimonialsData(newData);
+                        }} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", fontWeight: 600 }} />
+                      </div>
+                    </div>
                     
-                    <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)" }}>Review Text</label>
-                    <textarea value={review.review} onChange={(e) => {
-                      const newData = [...testimonialsData];
-                      newData[index].review = e.target.value;
-                      setTestimonialsData(newData);
-                    }} rows={2} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                      <div>
+                        <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)" }}>Review Text (English)</label>
+                        <textarea value={review.review.en} onChange={(e) => {
+                          const newData = [...testimonialsData];
+                          newData[index].review = { ...newData[index].review, en: e.target.value };
+                          setTestimonialsData(newData);
+                        }} rows={2} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                      </div>
+                      <div>
+                        <label style={{ fontSize: "12px", fontWeight: 600, color: "var(--color-charcoal)" }}>Review Text (Bangla)</label>
+                        <textarea value={review.review.bn} onChange={(e) => {
+                          const newData = [...testimonialsData];
+                          newData[index].review = { ...newData[index].review, bn: e.target.value };
+                          setTestimonialsData(newData);
+                        }} rows={2} style={{ width: "100%", padding: "10px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "13px", resize: "vertical" }} />
+                      </div>
+                    </div>
                     
                     <div style={{ display: "flex", gap: "12px", alignItems: "center", marginTop: "4px" }}>
                       <div style={{ width: "40px", height: "40px", borderRadius: "50%", overflow: "hidden", position: "relative", border: "1px solid var(--color-line)", backgroundColor: "var(--color-orange)", display: "flex", alignItems: "center", justifyContent: "center", color: "white" }}>
@@ -492,7 +626,7 @@ export default function WebsiteEditor() {
                 ))}
                 
                 <button 
-                  onClick={() => setTestimonialsData([...testimonialsData, { id: Date.now(), name: "New Customer", review: "Write a new review here...", image: "" }])}
+                  onClick={() => setTestimonialsData([...testimonialsData, { id: Date.now(), name: {en: "New Customer", bn: "নতুন গ্রাহক"}, review: {en: "Write a new review here...", bn: "এখানে নতুন মতামত লিখুন..."}, image: "" }])}
                   style={{ border: "2px dashed var(--color-line)", borderRadius: "8px", padding: "16px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", cursor: "pointer", background: "white", color: "var(--color-black)", fontWeight: 600, fontSize: "14px" }}
                 >
                   <Plus size={18} /> Add New Testimonial
@@ -539,12 +673,20 @@ export default function WebsiteEditor() {
                     {(footerServices || []).map((link, index) => (
                       <div key={link.id} style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px", border: "1px solid var(--color-line)", borderRadius: "8px", backgroundColor: "#f8fafc" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <input type="text" value={link.text} onChange={(e) => {
-                            const newData = [...footerServices];
-                            newData[index].text = e.target.value;
-                            setFooterServices(newData);
-                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "150px" }} />
+                          <span style={{ fontSize: "13px", fontWeight: 600 }}>Link {index + 1}</span>
                           <button onClick={() => setFooterServices(footerServices.filter(l => l.id !== link.id))} style={{ background: "none", border: "none", color: "red", cursor: "pointer" }}><Trash2 size={14} /></button>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                          <input type="text" value={link.text.en} onChange={(e) => {
+                            const newData = [...footerServices];
+                            newData[index].text = { ...newData[index].text, en: e.target.value };
+                            setFooterServices(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} placeholder="Link Text (English)" />
+                          <input type="text" value={link.text.bn} onChange={(e) => {
+                            const newData = [...footerServices];
+                            newData[index].text = { ...newData[index].text, bn: e.target.value };
+                            setFooterServices(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} placeholder="Link Text (Bengali)" />
                         </div>
                         <input type="text" value={link.url} onChange={(e) => {
                           const newData = [...footerServices];
@@ -557,29 +699,29 @@ export default function WebsiteEditor() {
                           <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-black)" }}>Page Content (Appears when user clicks this link)</span>
                           
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                            <input type="text" value={link.pageSubtitleEn || ""} onChange={(e) => {
+                            <input type="text" value={link.pageSubtitle?.en || ""} onChange={(e) => {
                               const newData = [...footerServices];
-                              newData[index].pageSubtitleEn = e.target.value;
+                              newData[index].pageSubtitle = { en: e.target.value, bn: newData[index].pageSubtitle?.bn || "" };
                               setFooterServices(newData);
                             }} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px" }} placeholder="Subtitle (English)" />
                             
-                            <input type="text" value={link.pageSubtitleBn || ""} onChange={(e) => {
+                            <input type="text" value={link.pageSubtitle?.bn || ""} onChange={(e) => {
                               const newData = [...footerServices];
-                              newData[index].pageSubtitleBn = e.target.value;
+                              newData[index].pageSubtitle = { en: newData[index].pageSubtitle?.en || "", bn: e.target.value };
                               setFooterServices(newData);
                             }} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px" }} placeholder="Subtitle (Bengali)" />
                           </div>
 
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                            <textarea value={link.pageContentEn || ""} onChange={(e) => {
+                            <textarea value={link.pageContent?.en || ""} onChange={(e) => {
                               const newData = [...footerServices];
-                              newData[index].pageContentEn = e.target.value;
+                              newData[index].pageContent = { en: e.target.value, bn: newData[index].pageContent?.bn || "" };
                               setFooterServices(newData);
                             }} rows={3} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px", resize: "vertical" }} placeholder="Full Content (English)" />
                             
-                            <textarea value={link.pageContentBn || ""} onChange={(e) => {
+                            <textarea value={link.pageContent?.bn || ""} onChange={(e) => {
                               const newData = [...footerServices];
-                              newData[index].pageContentBn = e.target.value;
+                              newData[index].pageContent = { en: newData[index].pageContent?.en || "", bn: e.target.value };
                               setFooterServices(newData);
                             }} rows={3} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px", resize: "vertical" }} placeholder="Full Content (Bengali)" />
                           </div>
@@ -589,7 +731,7 @@ export default function WebsiteEditor() {
                   </div>
 
                   <button 
-                    onClick={() => setFooterServices([...(footerServices || []), { id: Date.now().toString(), text: "New Service Link", url: "/services/new-service" }])}
+                    onClick={() => setFooterServices([...(footerServices || []), { id: Date.now().toString(), text: {en: "New Service Link", bn: "নতুন সার্ভিস লিংক"}, url: "/services/new-service" }])}
                     style={{ padding: "10px", border: "1px dashed var(--color-line)", backgroundColor: "white", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
                   >
                     <Plus size={14} /> Add Service Link
@@ -604,12 +746,20 @@ export default function WebsiteEditor() {
                     {(footerQuickLinks || []).map((link, index) => (
                       <div key={link.id} style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "12px", border: "1px solid var(--color-line)", borderRadius: "8px", backgroundColor: "#f8fafc" }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <input type="text" value={link.text} onChange={(e) => {
-                            const newData = [...footerQuickLinks];
-                            newData[index].text = e.target.value;
-                            setFooterQuickLinks(newData);
-                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "150px" }} />
+                          <span style={{ fontSize: "13px", fontWeight: 600 }}>Link {index + 1}</span>
                           <button onClick={() => setFooterQuickLinks(footerQuickLinks.filter(l => l.id !== link.id))} style={{ background: "none", border: "none", color: "red", cursor: "pointer" }}><Trash2 size={14} /></button>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                          <input type="text" value={link.text.en} onChange={(e) => {
+                            const newData = [...footerQuickLinks];
+                            newData[index].text = { ...newData[index].text, en: e.target.value };
+                            setFooterQuickLinks(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} placeholder="Link Text (English)" />
+                          <input type="text" value={link.text.bn} onChange={(e) => {
+                            const newData = [...footerQuickLinks];
+                            newData[index].text = { ...newData[index].text, bn: e.target.value };
+                            setFooterQuickLinks(newData);
+                          }} style={{ padding: "6px", border: "1px solid var(--color-line)", borderRadius: "4px", outline: "none", fontSize: "13px", fontWeight: 600, width: "100%" }} placeholder="Link Text (Bengali)" />
                         </div>
                         <input type="text" value={link.url} onChange={(e) => {
                           const newData = [...footerQuickLinks];
@@ -622,29 +772,29 @@ export default function WebsiteEditor() {
                           <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--color-black)" }}>Page Content (Appears when user clicks this link)</span>
                           
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                            <input type="text" value={link.pageSubtitleEn || ""} onChange={(e) => {
+                            <input type="text" value={link.pageSubtitle?.en || ""} onChange={(e) => {
                               const newData = [...footerQuickLinks];
-                              newData[index].pageSubtitleEn = e.target.value;
+                              newData[index].pageSubtitle = { en: e.target.value, bn: newData[index].pageSubtitle?.bn || "" };
                               setFooterQuickLinks(newData);
                             }} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px" }} placeholder="Subtitle / Short Description (English)" />
                             
-                            <input type="text" value={link.pageSubtitleBn || ""} onChange={(e) => {
+                            <input type="text" value={link.pageSubtitle?.bn || ""} onChange={(e) => {
                               const newData = [...footerQuickLinks];
-                              newData[index].pageSubtitleBn = e.target.value;
+                              newData[index].pageSubtitle = { en: newData[index].pageSubtitle?.en || "", bn: e.target.value };
                               setFooterQuickLinks(newData);
                             }} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px" }} placeholder="Subtitle / Short Description (Bengali)" />
                           </div>
 
                           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
-                            <textarea value={link.pageContentEn || ""} onChange={(e) => {
+                            <textarea value={link.pageContent?.en || ""} onChange={(e) => {
                               const newData = [...footerQuickLinks];
-                              newData[index].pageContentEn = e.target.value;
+                              newData[index].pageContent = { en: e.target.value, bn: newData[index].pageContent?.bn || "" };
                               setFooterQuickLinks(newData);
                             }} rows={4} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px", resize: "vertical" }} placeholder="Full Content (English)" />
                             
-                            <textarea value={link.pageContentBn || ""} onChange={(e) => {
+                            <textarea value={link.pageContent?.bn || ""} onChange={(e) => {
                               const newData = [...footerQuickLinks];
-                              newData[index].pageContentBn = e.target.value;
+                              newData[index].pageContent = { en: newData[index].pageContent?.en || "", bn: e.target.value };
                               setFooterQuickLinks(newData);
                             }} rows={4} style={{ padding: "8px", border: "1px solid var(--color-line)", borderRadius: "6px", outline: "none", fontSize: "12px", resize: "vertical" }} placeholder="Full Content (Bengali)" />
                           </div>
@@ -654,7 +804,7 @@ export default function WebsiteEditor() {
                   </div>
 
                   <button 
-                    onClick={() => setFooterQuickLinks([...(footerQuickLinks || []), { id: Date.now().toString(), text: "New Quick Link", url: "/legal/new-link" }])}
+                    onClick={() => setFooterQuickLinks([...(footerQuickLinks || []), { id: Date.now().toString(), text: {en: "New Quick Link", bn: "নতুন কুইক লিংক"}, url: "/legal/new-link" }])}
                     style={{ padding: "10px", border: "1px dashed var(--color-line)", backgroundColor: "white", borderRadius: "8px", fontSize: "13px", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}
                   >
                     <Plus size={14} /> Add Quick Link

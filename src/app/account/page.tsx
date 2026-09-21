@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import PricingOffer from "../../components/PricingOffer";
 import Footer from "../../components/Footer";
+import styles from "./Account.module.css";
 
 export default function AccountPage() {
   const { lang } = useLanguage();
@@ -62,7 +63,7 @@ export default function AccountPage() {
   return (
     <main style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <Header />
-      <div style={{ padding: "120px 0 80px", backgroundColor: "#f8fafc", display: "flex", flexDirection: "column", flex: 1 }}>
+      <div className={styles.mainWrapper}>
       <div className="grid-container" style={{ flex: 1 }}>
         <div style={{ gridColumn: "1 / -1", maxWidth: "500px", margin: "0 auto", width: "100%" }}>
           <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--color-charcoal)", marginBottom: "32px", fontWeight: 600 }}>

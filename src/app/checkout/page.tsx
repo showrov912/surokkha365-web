@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, User, Phone, MapPin, Building2, CheckSquare, Loader2, Check, Lock } from "lucide-react";
 import Link from "next/link";
 import { useJourney } from "@/context/JourneyContext";
+import styles from "./Checkout.module.css";
 
 function CheckoutForm() {
   const { lang } = useLanguage();
@@ -140,10 +141,10 @@ function CheckoutForm() {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#f8fafc", padding: "120px 0 80px" }}>
-      <div className="grid-container" style={{ display: "grid", gridTemplateColumns: "1fr 350px", gap: "32px", alignItems: "start" }}>
+      <div className={styles.layout}>
         
         {/* Left Column: Form */}
-        <div style={{ gridColumn: "1" }}>
+        <div>
           <Link href="/#booking" style={{ display: "inline-flex", alignItems: "center", gap: "8px", color: "var(--color-charcoal)", textDecoration: "none", fontWeight: 600, marginBottom: "24px" }}>
             <ArrowLeft size={16} /> {t.back}
           </Link>
@@ -159,7 +160,7 @@ function CheckoutForm() {
                 <User size={20} color="var(--color-orange)" /> {t.form.personal}
               </h3>
               
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+              <div className={styles.formGrid}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-black)" }}>{t.form.name} <span style={{ color: "red" }}>*</span></label>
                   <input type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} placeholder={t.form.namePlaceholder} required style={{ padding: "12px 16px", borderRadius: "8px", border: "1px solid var(--color-line)", fontSize: "15px", outline: "none" }} />
@@ -186,7 +187,7 @@ function CheckoutForm() {
                 <Lock size={20} color="var(--color-orange)" /> {t.form.account}
               </h3>
               
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+              <div className={styles.formGrid}>
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
                   <label style={{ fontSize: "14px", fontWeight: 600, color: "var(--color-black)" }}>{t.form.email}</label>
                   <input type="email" value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} placeholder={t.form.emailPlaceholder} style={{ padding: "12px 16px", borderRadius: "8px", border: "1px solid var(--color-line)", fontSize: "15px", outline: "none" }} />
@@ -278,7 +279,7 @@ function CheckoutForm() {
         </div>
         
         {/* Right Column: Order Summary */}
-        <div style={{ gridColumn: "2", position: "sticky", top: "100px" }}>
+        <div className={styles.summaryCol}>
           <div style={{ backgroundColor: "var(--color-black)", borderRadius: "12px", padding: "32px", color: "white" }}>
             <h3 style={{ fontSize: "20px", fontWeight: 700, marginBottom: "24px", color: "white" }}>{t.summary.title}</h3>
             

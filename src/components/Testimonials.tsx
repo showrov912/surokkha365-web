@@ -11,52 +11,33 @@ export default function Testimonials() {
   const { testimonialsData, testimonialBg } = useWebsiteData();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const content = {
+  const t = {
     en: {
       badge: "Testimonials",
       title: "Customer Reviews",
-      reviews: testimonialsData.map(r => ({
-        name: r.name,
-        time: "Recent",
-        text: r.review,
-        rating: 5,
-        image: r.image
-      }))
+      time: "Recent"
     },
     bn: {
       badge: "প্রশংসাপত্র",
       title: "গ্রাহকদের মতামত",
-      reviews: [
-        {
-          name: "রাহুল প্যাটেল",
-          time: "২ সপ্তাহ আগে",
-          text: "আমরা রাতারাতি জাদুর আশা করিনি, কিন্তু অল্প সময়ের মধ্যেই পরিস্থিতি অনেক বেশি নিয়ন্ত্রণযোগ্য এবং আরামদায়ক হয়ে ওঠে। আমরা ফলাফলে বেশ খুশি।",
-          rating: 5
-        },
-        {
-          name: "রাজেশ বর্মা",
-          time: "এক মাস আগে",
-          text: "ট্রিটমেন্টের কয়েক মাস হয়ে গেছে এবং ক্ষতির কোনো নতুন লক্ষণ নেই। সেটাই অনেক কিছু বলে। আমরা এটিতে খুব সন্তুষ্ট।",
-          rating: 5
-        },
-        {
-          name: "সোনিয়া আক্তার",
-          time: "২ মাস আগে",
-          text: "খুব পেশাদার এবং পরিচ্ছন্ন সার্ভিস। টেকনিশিয়ানরা সময়মতো পৌঁছে পুরো প্রক্রিয়াটি ব্যাখ্যা করেন। উইপোকা নিয়ন্ত্রণের জন্য দারুণভাবে সুপারিশ করছি।",
-          rating: 5
-        }
-      ]
+      time: "সম্প্রতি"
     }
-  };
+  }[lang];
 
-  const t = content[lang as keyof typeof content] || content.en;
+  const mappedReviews = testimonialsData.map((r) => ({
+    name: r.name[lang as 'en' | 'bn'],
+    time: t.time,
+    text: r.review[lang as 'en' | 'bn'],
+    rating: 5,
+    image: r.image
+  }));
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % t.reviews.length);
+    setCurrentIndex((prev) => (prev + 1) % mappedReviews.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + t.reviews.length) % t.reviews.length);
+    setCurrentIndex((prev) => (prev - 1 + mappedReviews.length) % mappedReviews.length);
   };
 
   return (
@@ -92,7 +73,7 @@ export default function Testimonials() {
               className={styles.cardsTrack}
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {t.reviews.map((review, idx) => (
+              {mappedReviews.map((review, idx) => (
                 <div key={idx} className={styles.cardWrapper}>
                   <div className={styles.card}>
                     

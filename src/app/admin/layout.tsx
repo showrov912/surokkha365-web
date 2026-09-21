@@ -75,8 +75,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         className="admin-sidebar"
       >
         <div style={{ padding: "24px", display: "flex", alignItems: "center", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.1)" }}>
-          <Link href="/" style={{ position: "relative", width: "140px", height: "40px", display: "block" }}>
-            <Image src="/logo-white.png" alt="Surokkha365" fill style={{ objectFit: "contain" }} />
+          <Link href="/" style={{ position: "relative", width: "40px", height: "40px", display: "block" }}>
+            <Image src="/orange-favicon.svg" alt="Surokkha365" fill style={{ objectFit: "contain" }} />
           </Link>
           <button 
             onClick={() => setSidebarOpen(false)}

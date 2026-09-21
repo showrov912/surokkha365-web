@@ -4,6 +4,7 @@ import { useLanguage } from "./LanguageContext";
 import { useWebsiteData } from "@/context/WebsiteContext";
 import styles from "./Hero.module.css";
 import { Calculator, CheckCircle2, ShieldCheck, FileText, Baby } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   const { lang } = useLanguage();
@@ -11,8 +12,8 @@ export default function Hero() {
 
   const t = {
     en: {
-      hook: heroData.headline,
-      support: heroData.subheadline,
+      hook: heroData.headline.en,
+      support: heroData.subheadline.en,
       trust: [
         { icon: Calculator, text: "Fixed Pricing" },
         { icon: ShieldCheck, text: "Verified Techs" },
@@ -21,8 +22,8 @@ export default function Hero() {
       ]
     },
     bn: {
-      hook: "এক মিনিটে বুক করুন পেস্ট কন্ট্রোল, এবং পরে প্রমাণ পান।",
-      support: "স্কয়ার ফিট প্রতি নির্ধারিত মূল্য। যাচাইকৃত টেকনিশিয়ান। প্রতিটি ভিজিটের পর অডিট-রেডি ডিজিটাল রিপোর্ট।",
+      hook: heroData.headline.bn,
+      support: heroData.subheadline.bn,
       trust: [
         { icon: Calculator, text: "নির্ধারিত মূল্য" },
         { icon: ShieldCheck, text: "ভেরিফাইড টেকনিশিয়ান" },
@@ -35,7 +36,8 @@ export default function Hero() {
   return (
     <section className={styles.heroSection} data-lang={lang}>
       {/* Background Image / Overlay */}
-      <div className={styles.bgImage} style={{ backgroundImage: `url(${heroData.bgImage})` }}>
+      <div className={styles.bgImage}>
+        <Image src={heroData.bgImage} alt="Hero Background" fill priority sizes="100vw" style={{ objectFit: 'cover' }} />
         <div className={styles.bgOverlay} />
       </div>
 

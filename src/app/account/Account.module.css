@@ -1,0 +1,13 @@
+.mainWrapper {
+  padding: 120px 0 80px;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .mainWrapper {
+    padding: 80px 0 40px;
+  }
+}

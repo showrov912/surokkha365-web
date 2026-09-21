@@ -8,6 +8,7 @@ import ProblemBlock from "@/components/ProblemBlock";
 import SolutionPillars from "@/components/SolutionPillars";
 import SocialProof from "@/components/SocialProof";
 import Testimonials from "@/components/Testimonials";
+import BlogsSection from "@/components/BlogsSection";
 import PricingOffer from "@/components/PricingOffer";
 import Footer from "@/components/Footer";
 
@@ -28,6 +29,7 @@ export default function Home() {
       <SolutionPillars />
       <SocialProof />
       <Testimonials />
+      <BlogsSection />
       <PricingOffer />
       <Footer />
     </main>
